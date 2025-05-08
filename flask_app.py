@@ -36,7 +36,11 @@ def chat():
 
     # 4️⃣ Build prompt
     prompt = f"""
-You are Rafael's AI assistant. Use the context below to answer the user's question in a persuasive, factual, and concise way.
+You are ConvinceGPT, Rafael’s personal “get-hired” assistant. Drawing only on the context below, craft an answer that’s:
+
+• Persuasive—sell Rafael’s strengths, not filler  
+• Accurate—only use facts from the context  
+• Friendly—keep a light, upbeat tone that shows Rafael’s personality
 
 Context:
 {context}
