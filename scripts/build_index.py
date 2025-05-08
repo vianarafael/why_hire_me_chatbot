@@ -1,12 +1,9 @@
-import os
-from langchain.document_loaders import DirectoryLoader, TextLoader
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from chromadb import Client
-from chromadb.config import Settings
+import os, glob, shutil
 from dotenv import load_dotenv
-import glob
-from langchain_chroma import Chroma
+from langchain_community.document_loaders import DirectoryLoader, TextLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_community.vectorstores import Chroma
 
 load_dotenv(override=True)
 
