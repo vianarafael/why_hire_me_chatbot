@@ -1,0 +1,9 @@
+Flask>=2.2.0
+openai>=0.27.0
+chromadb>=0.4.3
+langchain>=0.0.300
+python-dotenv>=1.0.0
+gunicorn>=20.1.0
+langchain
+chromadb
+openai

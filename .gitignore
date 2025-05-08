@@ -1,0 +1,70 @@
+# Python artifacts
+
+pycache/
+*.py[cod]
+*.pyo
+*.pyd
+env/
+venv/
+*.env
+.env
+
+
+#ChromaDB vector store
+
+chroma/
+chroma-linux-rag/
+
+#Flask instance folder
+
+instance/
+
+VSCode
+
+.vscode/
+
+# OS files
+
+.DS_Store
+Thumbs.db
+
+# Node.js / React
+
+frontend-react/node_modules/
+frontend-react/build/
+frontend-react/.env.local
+frontend-react/.next/
+frontend-react/.env/
+frontend-react/.DS_Store
+
+# Logs
+
+.log
+npm-debug.log
+
+# IDEs
+
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Coverage
+
+htmlcov/
+.coverage
+
+Python distribution
+
+dist/
+build/
+*.egg-info/
+
+# Python virtual env
+openai-env/
+
+# Node dependencies
+frontend/node_modules/
+
+# Mac artifacts (if you like)
+*.DS_Store
+
