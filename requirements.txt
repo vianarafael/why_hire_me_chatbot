@@ -7,3 +7,4 @@ gunicorn>=20.1.0
 langchain
 chromadb
 openai
+langchain-community>=0.0.300
