@@ -6,13 +6,10 @@ from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 from openai import OpenAI
 
-# Load environment
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
-
-# 1️⃣ Initialize Chroma (load persisted vectorstore)
+CORS(app)  
 embeddings = OpenAIEmbeddings(
     model="text-embedding-3-small",
     openai_api_key=os.getenv("OPENAI_API_KEY")
@@ -22,25 +19,23 @@ vectorstore = Chroma(
     embedding_function=embeddings
 )
 
-# 2️⃣ Initialize OpenAI chat client
 openai = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 @app.route("/chat", methods=["POST"])
 def chat():
     data = request.json
     question = data.get("question", "")
-    # 3️⃣ Retrieve top-k chunks
-    # returns a list of Document objects
+    
     chunks = vectorstore.similarity_search(question, k=4)
     context = "\n\n".join([chunk.page_content for chunk in chunks])
 
-    # 4️⃣ Build prompt
     prompt = f"""
 You are ConvinceGPT, Rafael’s personal “get-hired” assistant. Drawing only on the context below, craft an answer that’s:
 
 • Persuasive—sell Rafael’s strengths, not filler  
 • Accurate—only use facts from the context  
 • Friendly—keep a light, upbeat tone that shows Rafael’s personality
+• Keep it short and concise 
 
 Context:
 {context}
@@ -50,9 +45,8 @@ Question:
 
 Answer:
 """
-    # 5️⃣ Call GPT-4o
     resp = openai.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=[{"role":"user", "content": prompt}]
     )
     return jsonify(answer=resp.choices[0].message.content)
