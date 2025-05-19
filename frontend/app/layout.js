@@ -11,17 +11,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
 export const metadata = {
   title: "Why Hire Rafael Chatbot",
-  description: "Talk with a chatbot built to help you make the right decision, hiring Rafael",
+  description:
+    "Talk with a chatbot built to help you make the right decision, hiring Rafael",
+  icons: {
+    icon: "/images/chatgpt-icon.png",
+    shortcut: "/images/chatgpt-icon.png",
+    apple: "/images/chatgpt-icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" type="image/png" href="/chatgpt-icon.png" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

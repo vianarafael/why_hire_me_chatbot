@@ -6,6 +6,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY flask_app.py .
+COPY ingest.py .
 COPY scripts/ ./scripts/
 
 EXPOSE 10000
