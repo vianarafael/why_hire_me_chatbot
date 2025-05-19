@@ -9,7 +9,7 @@ services:
     env_file:
       - ./backend/.env
     ports:
-      - "5000:10000"       # host:container
+      - "5001:10000"       # host:container
     volumes:
       - ./backend/chroma:/app/chroma                  # persists your vectorstore
       - ./backend/knowledge_base:/app/knowledge_base:ro  # read-only mount for MDs
